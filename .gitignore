@@ -1,0 +1,6 @@
+.prompts/
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.eslintcache
