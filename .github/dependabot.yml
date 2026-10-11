@@ -1,14 +1,21 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: /
+    directory: "/"
     schedule:
       interval: weekly
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
     open-pull-requests-limit: 10
     ignore:
-      - dependency-name: typescript
-        update-types: ["version-update:semver-major"]
+      - dependency-name: "typescript"
+        update-types:
+          - version-update:semver-major
+
   - package-ecosystem: github-actions
-    directory: /
+    directory: "/"
     schedule:
       interval: weekly
