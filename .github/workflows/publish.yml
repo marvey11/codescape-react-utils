@@ -23,7 +23,10 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - name: Set package visibility to public
-        env:
-          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        run: gh api --method PATCH "/user/packages/npm/%40marvey11%2Fcodescape-react-utils" --field visibility=public
+      - name: Explain package visibility setup
+        run: |
+          {
+            echo "### GitHub Packages visibility"
+            echo "GitHub's npm registry does not provide a REST endpoint to change package visibility. After the first publish, open the package settings and change visibility to Public."
+            echo "See the Release section in README.md for the steps."
+          } >> "$GITHUB_STEP_SUMMARY"
