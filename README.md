@@ -55,4 +55,6 @@ The build emits an ES module and TypeScript declarations in `dist/`. React is ex
 
 ## Release
 
-Create and publish a GitHub Release to run the package publishing workflow. The workflow publishes with `GITHUB_TOKEN` and makes the resulting GitHub Package public.
+Create and publish a GitHub Release to run the package publishing workflow. The workflow publishes to GitHub Packages with `GITHUB_TOKEN`.
+
+GitHub's npm registry defaults newly published packages to private and does not provide a REST endpoint to change package visibility. After the first publish, open the package's settings on GitHub, choose **Change visibility** under **Danger Zone**, select **Public**, and confirm. GitHub does not allow a public package to be made private again.
